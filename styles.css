@@ -1,0 +1,43 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header, main, footer {
+  padding: 1rem;
+}
+
+.perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.perfil .avatar {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .perfil {
+    flex-direction: row;
+    text-align: left;
+  }
+  .perfil .avatar {
+    width: 150px;
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    max-width: 800px;
+    margin: auto;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
