@@ -1,0 +1,154 @@
+$font-main: 'Segoe UI', Tahoma, sans-serif;
+$color-bg: #dcdfe2;
+$color-text: #333;
+$color-primary: #4286bd;
+$color-secondary: #051642;
+$color-white: #fff;
+$shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 600px) { @content; }
+  }
+}
+
+
+body {
+  font-family: $font-main;
+  background-color: $color-bg;
+  color: $color-text;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(to right, $color-primary, $color-secondary);
+  color: $color-white;
+  padding: 2rem;
+
+  .perfil {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid $color-white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .info {
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      h2 {
+        font-weight: 300;
+        font-size: 1.2rem;
+      }
+    }
+
+    @include respond(small) {
+      flex-direction: column;
+      text-align: center;
+
+      .avatar {
+        width: 100px;
+        height: 100px;
+      }
+
+      .info h1 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background-color: $color-white;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: $shadow;
+
+  h3 {
+    font-size: 1.5rem;
+    color: $color-primary;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    &.skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      li {
+        background-color: $color-primary;
+        color: $color-white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+
+  article {
+    h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: $color-primary;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
+        background-color: $color-primary;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
